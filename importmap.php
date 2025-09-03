@@ -23,6 +23,13 @@ return [
         'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
     ],
     '@hotwired/turbo' => [
-        'version' => '7.3.0',
+        'version' => '8.0.13',
+    ],
+    '@tabler/core' => [
+        'version' => '1.4.0',
+    ],
+    '@tabler/core/dist/css/tabler.min.css' => [
+        'version' => '1.4.0',
+        'type' => 'css',
     ],
 ];

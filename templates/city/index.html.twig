@@ -1,0 +1,27 @@
+{# templates/city/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page"><div class="content"><div class="container-xl">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <form method="get" action="{{ path('city_index') }}" data-turbo="true"
+                            {{ stimulus_controller('search', { param: 'q', frame: 'city-results' }) }}
+                            {{ stimulus_action('search', 'submit', 'input->debounce:250') }}>
+                            <label class="form-label">Stadt suchen</label>
+                            <input class="form-control" name="q" value="{{ q }}">
+                        </form>
+                    </div>
+                </div>
+
+                <turbo-frame id="city-results">
+                    {% include 'city/_list.html.twig' with { cities } %}
+                </turbo-frame>
+            </div>
+        </div>
+    </div>
+    <div>
+
+
+    </div>
+
+{% endblock %}
