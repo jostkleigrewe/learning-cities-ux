@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tabler Dropdown Beispiele{% endblock %}
+
+{% block body %}
+<div class="page">
+  <div class="page-wrapper">
+    <div class="container-xl py-4">
+      <h1 class="mb-3">Tabler Dropdown Beispiele</h1>
+      <p class="text-muted mb-4">
+        Diese Seite zeigt mehrere Varianten von <a href="https://docs.tabler.io/ui/components/dropdowns" target="_blank" rel="noreferrer">Tabler Dropdowns</a>.
+        Darunter ist beschrieben, wie das notwendige JavaScript in diesem Projekt geladen wird.
+      </p>
+
+      {# Basic dropdown #}
+      <div class="card mb-4">
+        <div class="card-header"><h3 class="card-title">Einfaches Dropdown</h3></div>
+        <div class="card-body">
+          <div class="btn-list">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+                Aktionen
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Aktion 1</a>
+                <a class="dropdown-item" href="#">Aktion 2</a>
+                <a class="dropdown-item" href="#">Noch etwas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Dropdown with divider and header #}
+      <div class="card mb-4">
+        <div class="card-header"><h3 class="card-title">Dropdown mit Header und Divider</h3></div>
+        <div class="card-body">
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+              Menü
+            </button>
+            <div class="dropdown-menu">
+              <h6 class="dropdown-header">Allgemein</h6>
+              <a class="dropdown-item" href="#">Profil</a>
+              <a class="dropdown-item" href="#">Einstellungen</a>
+              <div class="dropdown-divider"></div>
+              <h6 class="dropdown-header">Gefahr</h6>
+              <a class="dropdown-item text-danger" href="#">Konto löschen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Right-aligned dropdown #}
+      <div class="card mb-4">
+        <div class="card-header"><h3 class="card-title">Rechts ausgerichtet</h3></div>
+        <div class="card-body">
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+              Rechts
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="#">Aktion</a>
+              <a class="dropdown-item" href="#">Noch eine Aktion</a>
+              <a class="dropdown-item" href="#">Etwas anderes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Dropdown with icons #}
+      <div class="card mb-4">
+        <div class="card-header"><h3 class="card-title">Dropdown mit Icons</h3></div>
+        <div class="card-body">
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+              Mit Icons
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 20l4 -16" /><path d="M7 20l4 -16" /><path d="M17 20l4 -16" /><path d="M2 20l4 -16" /></svg>
+                Exportieren
+              </a>
+              <a class="dropdown-item" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                Prüfen
+              </a>
+              <a class="dropdown-item" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 12l2 2l4 -4" /><path d="M9 12l2 2l-2 6" /><path d="M11 14l6 2" /></svg>
+                Aufgaben
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-info" role="alert">
+        <div class="d-flex">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v2m0 4v.01" /><path d="M5.07 19h13.86c1.5 0 2.5 -1.6 1.94 -3l-6.93 -12a2 2 0 0 0 -3.54 0l-6.93 12c-.56 1.4 .44 3 1.94 3z" /></svg>
+          </div>
+          <div>
+            <h4 class="alert-title">Wie wird das JavaScript geladen?</h4>
+            <div class="text-muted">
+              In diesem Projekt wird Tabler-JS über den Entry <code>assets/app.js</code> importiert:
+              <pre class="mt-2 mb-2"><code>// assets/app.js
+import '@tabler/core'; // loads Tabler's JS (incl. Bootstrap features)</code></pre>
+              Das Entry wird in <code>base.html.twig</code> per <code>{{ '{{' }} importmap('app') {{ '}}' }}</code> eingebunden. Dadurch steht das notwendige Verhalten für Dropdowns (via <code>data-bs-toggle="dropdown"</code>) automatisch zur Verfügung.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
