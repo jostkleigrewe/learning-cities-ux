@@ -9,8 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class CityController extends AbstractController
 {
-    #[Route('/
-    ', name: 'city_index')]
+    #[Route('/cities', name: 'city_index')]
     public function index(Request $request): Response
     {
         $q = trim((string) $request->query->get('q', ''));
