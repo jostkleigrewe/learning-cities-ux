@@ -42,15 +42,24 @@ export default class extends Controller {
     }
 
     submit() {
-        console.log('Search submit');
+        // console.log('Search submit');
+        // const input = this.element.querySelector(`[name="${this.paramValue}"]`);
+        // const url = new URL(this.element.action, window.location.origin);
+        // if (input && input.value) url.searchParams.set(this.paramValue, input.value);
+        // else url.searchParams.delete(this.paramValue);
+        //
+        // // Turbo Frame ansteuern
+        // const frame = document.getElementById(this.frameValue);
+        // if (frame) frame.src = url.toString(); // lädt nur den Frame neu
+        // else window.location.href = url.toString(); // Fallback
+
         const input = this.element.querySelector(`[name="${this.paramValue}"]`);
         const url = new URL(this.element.action, window.location.origin);
-        if (input && input.value) url.searchParams.set(this.paramValue, input.value);
+        if (input?.value) url.searchParams.set(this.paramValue, input.value);
         else url.searchParams.delete(this.paramValue);
 
-        // Turbo Frame ansteuern
         const frame = document.getElementById(this.frameValue);
-        if (frame) frame.src = url.toString(); // lädt nur den Frame neu
-        else window.location.href = url.toString(); // Fallback
+        if (frame) frame.src = url.toString();
+        else window.location.href = url.toString();
     }
 }

@@ -1,27 +1,29 @@
-{# templates/city/index.html.twig #}
 {% extends 'base.html.twig' %}
+
 {% block body %}
-    <div class="page"><div class="content"><div class="container-xl">
-                <div class="row g-3">
+    <div class="page">
+        <div class="content">
+            <div class="container-xl">
+
+                <div class="row g-3 align-items-end mb-3">
                     <div class="col-12 col-md-6">
-                        <form method="get" action="{{ path('city_index') }}" data-turbo="true"
+                        <form method="get" action="{{ path('app_city_index') }}"
                             {{ stimulus_controller('search', { param: 'q', frame: 'city-results' }) }}
                             {{ stimulus_action('search', 'submit', 'input->debounce:250') }}>
                             <label class="form-label">Stadt suchen</label>
-                            <input class="form-control" name="q" value="{{ q }}">
+                            <input class="form-control" name="q" value="{{ q }}" placeholder="Berlin, München, …">
                         </form>
+                    </div>
+                    <div class="col text-end">
+                        <a href="{{ path('app_city_new') }}" class="btn btn-primary">Neue Stadt</a>
                     </div>
                 </div>
 
-                <turbo-frame id="city-results">
-                    {% include 'city/_list.html.twig' with { cities } %}
+                <turbo-frame id="city-results" target="_top">
+                    {% include 'city/_list.html.twig' with { cities: cities } %}
                 </turbo-frame>
+
             </div>
         </div>
     </div>
-    <div>
-
-
-    </div>
-
 {% endblock %}

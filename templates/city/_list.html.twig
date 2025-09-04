@@ -1,14 +1,33 @@
-{# templates/city/_list.html.twig #}
-<div class="row row-cards">
-    {% for name in cities %}
-        <div class="col-md-6 col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <strong>{{ name }}</strong>
-                </div>
-            </div>
-        </div>
-    {% else %}
-        <div class="text-secondary">Keine Treffer.</div>
-    {% endfor %}
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="w-25">Slug</th>
+          <th class="text-end">Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for city in cities %}
+        <tr id="city-{{ city.id }}">
+          <td>{{ city.name }}</td>
+          <td class="text-secondary">{{ city.slug }}</td>
+          <td class="text-end">
+            <a
+                class="btn btn-outline-primary btn-sm"
+                href="{{ path('app_city_show', { id: city.id }) }}"
+                ddata-turbo-frame="_top">Anzeigen</a>
+            <a
+                class="btn btn-outline-secondary btn-sm"
+                href="{{ path('app_city_edit', { id: city.id }) }}"
+                ddata-turbo-frame="_top">Bearbeiten</a>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="3" class="text-secondary">Keine Treffer.</td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>

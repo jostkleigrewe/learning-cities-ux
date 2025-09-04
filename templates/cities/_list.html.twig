@@ -1,0 +1,14 @@
+{# templates/city/_list.html.twig #}
+<div class="row row-cards">
+    {% for name in cities %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <strong>{{ name }}</strong>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="text-secondary">Keine Treffer.</div>
+    {% endfor %}
+</div>

@@ -36,6 +36,13 @@ import '@tabler/core/dist/js/tabler.min.js';
 ````
 
 
+````bash
+composer require --dev symfony/maker-bundle
+composer require symfony/validator
+composer require doctrine/doctrine-fixtures-bundle --dev
+````
+
+
 
 
 

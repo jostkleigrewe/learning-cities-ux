@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container-xl my-3">
+        <h2>Stadtteile in {{ city.name }}</h2>
+        <div class="row row-cards">
+            {% for d in districts %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="h3">{{ d.name }}</div>
+                            <a class="btn btn-sm btn-outline-primary" href="{{ path('app_place_by_district', { id: d.id }) }}">Orte anzeigen</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="text-secondary">Keine Stadtteile gefunden.</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
